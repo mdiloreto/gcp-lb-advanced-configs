@@ -1,0 +1,12 @@
+defaultService: projects/{proj-name}/regions/{region}/backendServices/{backend}
+name: matcher1
+routeRules:
+ - matchRules:
+     - prefixMatch: /
+   priority: 0
+   routeAction:
+     weightedBackendServices:
+       - backendService:projects/{proj-name}/regions/{region}/backendServices/{backend}
+         weight: 70
+       - backendService: projects/{proj-name}/regions/{region}/backendServices/{backend}
+         weight: 30

@@ -1,0 +1,10 @@
+defaultService: projects/{proj-name}/regions/{region}/backendServices/{backend}
+name: path-matcher-6
+routeRules:
+- matchRules:
+  - prefixMatch: /
+  priority: 0
+  service: projects/{proj-name}/regions/{region}/backendServices/{backend}
+  routeAction:
+    urlRewrite:
+      hostRewrite: {Internal-hostname-to-rewrite}
