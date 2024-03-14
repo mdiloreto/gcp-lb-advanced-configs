@@ -1,0 +1,57 @@
+Redirect examples
+The following table provides some examples of redirect configurations. The right-hand column shows the API configuration for a default URL redirect.
+
+You want	Accomplished using a default URL redirect
+HTTP-to-HTTPS redirect
+
+Redirect
+http://host.name/path
+to
+https://host.name/path	
+
+            kind: compute#urlMap
+            name: web-map-http
+            defaultUrlRedirect:
+              httpsRedirect: True
+           
+HTTP-to-HTTPS + Host redirect
+
+Redirect
+http://any-host-name/path
+to
+https://www.example.com/path	
+
+            kind: compute#urlMap
+            name: web-map-http
+            defaultUrlRedirect:
+              httpsRedirect: True
+              hostRedirect: "www.example.com"
+          
+HTTP-to-HTTPS + Host redirect + Full path redirect
+
+Redirect
+http://any-host-name/path
+to
+https://www.example.com/newPath	
+
+            kind: compute#urlMap
+            name: web-map-http
+            defaultUrlRedirect:
+              httpsRedirect: True
+              hostRedirect: "www.example.com"
+              pathRedirect: "/newPath"
+           
+HTTP-to-HTTPS + Host redirect + Prefix redirect
+
+Redirect
+http://any-host-name/originalPath
+to
+https://www.example.com/newPrefix/originalPath	
+
+            kind: compute#urlMap
+            name: web-map-http
+            defaultUrlRedirect:
+              httpsRedirect: True
+              hostRedirect: "www.example.com"
+              prefixRedirect: "/newPrefix"
+            
